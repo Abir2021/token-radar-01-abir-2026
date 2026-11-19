@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101616">
+  <title>Token Radar — launch intelligence</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Token Radar home"><span class="brand-mark">T<span>↗</span></span><span>TOKEN<br><b>RADAR</b></span></a>
+      <div class="top-meta"><span class="live-dot"></span> SNAPSHOT MODEL <span class="meta-sep">/</span> <span id="as-of">LOADING</span></div>
+      <div class="top-right"><span class="privacy"><span>◉</span> OFFLINE VIEW</span><span class="top-divider"></span><span class="version">ISSUE 01 <i>·</i> RESEARCH DESK</span></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> THE TOKEN LAUNCH RADAR <span class="eyebrow-index">01 — 758</span></div>
+          <h1>Find the signal.<br><em>Mind the risk.</em></h1>
+          <p>Protocols ranked by a transparent token-value scenario—not a launch prediction. The watchlist is a starting line, not the finish.</p>
+        </div>
+        <div class="hero-note"><span class="note-icon">↗</span><div><b>NO TOKEN IS PROMISED</b><p>“No token recorded” reflects the snapshot only. Verify each protocol yourself.</p></div></div>
+      </section>
+
+      <section class="metrics" aria-label="Snapshot summary">
+        <div class="metric"><span class="metric-label">PROTOCOLS SCANNED</span><strong id="metric-total">—</strong><span class="metric-foot">≥ $5M TVL snapshot</span></div>
+        <div class="metric metric-focus"><span class="metric-label">WATCHLIST FLOOR</span><strong id="metric-watchlist">—</strong><span class="metric-foot">No token recorded · ≥ $50M</span></div>
+        <div class="metric"><span class="metric-label">TOP SCENARIO</span><strong id="metric-top">—</strong><span class="metric-foot">Implied value, USD</span></div>
+        <div class="metric"><span class="metric-label">MODEL INPUTS</span><strong>3 <small>signals</small></strong><span class="metric-foot">TVL · tenure · 7-day change</span></div>
+      </section>
+
+      <section class="workspace" id="workspace">
+        <aside class="filters">
+          <div class="filter-head"><span class="section-kicker">01 / DISCOVER</span><span class="filter-glyph">⌕</span></div>
+          <label class="field-label" for="search">SEARCH RADAR</label>
+          <div class="search-wrap"><span>⌕</span><input id="search" type="search" placeholder="Protocol or chain" autocomplete="off"></div>
+          <label class="field-label" for="status">TOKEN RECORD</label>
+          <select id="status"><option value="all">All protocols</option><option value="watchlist">Watchlist floor</option><option value="unrecorded">No token recorded</option><option value="recorded">Token recorded</option></select>
+          <label class="field-label" for="category">CATEGORY</label>
+          <select id="category"><option value="">All categories</option></select>
+          <label class="field-label" for="chain">CHAIN</label>
+          <select id="chain"><option value="">All chains</option></select>
+          <div class="filter-rule"></div>
+          <div class="filter-count"><span>SHOWING</span><b id="result-count">—</b></div>
+          <p class="filter-tip"><b>Radar note</b><br>The house's $50M floor does not limit this board. Use filters to explore below it.</p>
+          <div class="source-stamp">SOURCE<br><span>DefiLlama snapshot · <span id="source-date">—</span></span></div>
+        </aside>
+
+        <section class="board">
+          <div class="board-head">
+            <div><div class="section-kicker">02 / RANKED BOARD</div><h2>Launch watch</h2></div>
+            <div class="board-actions"><span class="sort-hint">SORT BY</span><button class="sort-pill active" id="sort-value" type="button">Implied value <span>↓</span></button></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th class="rank-col"><button data-sort="rank">RANK <span>↕</span></button></th><th><button data-sort="name">PROTOCOL <span>↕</span></button></th><th><button data-sort="tvl_usd">TVL <span>↕</span></button></th><th><button data-sort="change_7d">7D CHANGE <span>↕</span></button></th><th><button data-sort="implied_value_usd">IMPLIED VALUE <span>↕</span></button></th><th>RECORD</th><th></th></tr></thead>
+              <tbody id="rows"><tr><td colspan="7" class="loading">DECODING SEALED SNAPSHOT…</td></tr></tbody>
+            </table>
+          </div>
+          <div class="table-foot"><span id="page-label">—</span><div class="pager"><button id="prev" type="button" aria-label="Previous page">←</button><button id="next" type="button" aria-label="Next page">→</button></div></div>
+          <div class="model-strip"><span class="model-icon">ƒ</span><div><b>HOW THE SCENARIO WORKS</b><span>TVL × 20% × tenure factor × 7-day momentum factor. Snapshot inputs only; not a forecast.</span></div><button id="model-open" type="button" aria-label="Read model details">↗</button></div>
+        </section>
+      </section>
+      <footer><span>TOKEN RADAR <i>·</i> AN OPEN, SNAPSHOT-BOUND RESEARCH TOOL</span><span>NOT INVESTMENT ADVICE <i>·</i> NO AIRDROP OR LAUNCH CLAIMS</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="zdata.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
