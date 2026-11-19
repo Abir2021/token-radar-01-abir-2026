@@ -3,12 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Token Radar: pre-token protocols ranked by implied value</title>
+<title>Token Radar — pre-token protocols ranked by implied value</title>
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<a class="skip" href="#board">Skip to the board</a>
-<main id="board" tabindex="-1" aria-busy="true"></main>
+<header class="top">
+  <div>
+    <h1>Token Radar</h1>
+    <p class="sub">Which pre-token protocol is worth farming next — and what to do about it.</p>
+  </div>
+  <p class="asof" id="asof"></p>
+</header>
+<main id="board" aria-busy="true">
+  <section class="stats" id="stats"></section>
+  <section class="controls">
+    <label>Search <input id="q" type="search" placeholder="Name, slug or chain…" autocomplete="off"></label>
+    <label>Category <select id="category"><option value="all">All categories</option></select></label>
+    <label>Sort <select id="sort">
+      <option value="implied">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7-day change</option>
+      <option value="age">Age</option>
+      <option value="name">Name</option>
+    </select></label>
+    <div class="tabs" role="tablist">
+      <button id="tab-pre" type="button" role="tab" aria-selected="true">Pre-token board</button>
+      <button id="tab-live" type="button" role="tab" aria-selected="false">Live tokens</button>
+    </div>
+  </section>
+  <p class="hint" id="hint"></p>
+  <div class="wrap">
+    <table id="table">
+      <thead><tr>
+        <th data-sort="implied">#</th><th data-sort="name">Protocol</th><th>Category</th>
+        <th data-sort="tvl">TVL</th><th data-sort="growth">7d</th><th data-sort="age">Tracked</th>
+        <th data-sort="implied">Implied value</th><th>Token</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <aside id="detail" aria-live="polite"></aside>
+  </div>
+  <footer class="model" id="model"></footer>
+</main>
 <script src="../data.js"></script>
 <script src="app.js"></script>
 </body>
